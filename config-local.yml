@@ -1,0 +1,30 @@
+logging:
+  level: INFO
+  loggers:
+    com.employee.webservice: DEBUG
+server:
+  applicationConnectors:
+    - type: http
+      port: 8085
+  adminConnectors:
+    - type: http
+      port: 8081
+database:
+  driverClass: com.mysql.cj.jdbc.Driver
+  url: jdbc:mysql://localhost/employeedb
+  user: employeedb
+  password: Data@123
+  maxWaitForConnection: 1s
+  validationQuery: "SELECT 1"
+  validationQueryTimeout: 3s
+  minSize: 8
+  maxSize: 32
+  checkConnectionWhileIdle: false
+  evictionInterval: 10s
+  minIdleTime: 1 minute
+  checkConnectionOnBorrow: true
+  properties:
+    hibernate.dialect: org.hibernate.dialect.MySQL57Dialect
+    hibernate.hbm2ddl.auto: create
+swagger:
+  resourcePackage: com.employee.webservice.resources
